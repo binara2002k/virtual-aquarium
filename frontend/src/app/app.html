@@ -7,13 +7,16 @@
 
   <div class="aquarium">
 
+    <!-- Light rays -->
     <div class="light light-one"></div>
     <div class="light light-two"></div>
 
+    <!-- Bubbles -->
     <div class="bubble bubble-one"></div>
     <div class="bubble bubble-two"></div>
     <div class="bubble bubble-three"></div>
 
+    <!-- Plants -->
     <div class="plant plant-one">
       <span></span>
       <span></span>
@@ -26,19 +29,41 @@
       <span></span>
     </div>
 
+    <!-- Rocks -->
     <div class="rock rock-one"></div>
     <div class="rock rock-two"></div>
 
-    <div class="fish fish-one">
-  <div class="tail"></div>
+    <!-- Fish -->
+    <div
+      class="fish"
+      [style.left.px]="fishX"
+      [style.top.px]="fishY"
+      [class.facing-left]="fishDirection === -1"
+    >
+      <div class="tail"></div>
 
-  <div class="fish-body">
-    <div class="eye"></div>
-  </div>
-</div>
+      <div class="fish-body">
+        <div class="eye"></div>
+      </div>
+    </div>
 
+    <!-- Food -->
+    @if (foodVisible) {
+      <div
+        class="food"
+        [style.left.px]="foodX"
+        [style.top.px]="foodY"
+      ></div>
+    }
+
+    <!-- Sand -->
     <div class="sand"></div>
 
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button (click)="feedFish()">Feed Fish</button>
   </div>
 
 </div>
